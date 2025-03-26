@@ -1,0 +1,191 @@
+{
+  "train_data": "E:\\Thesis\\molda\\17000datas.csv",
+  "val_data": null,
+  "test_data": null,
+  "train_split": 0.6,
+  "val_split": 0.2,
+  "test_split": 0.2,
+  "output_dir": "E:\\Thesis\\molda\\output_model",
+  "max_chars": 300,
+  "char_emb_dim": 50,
+  "lstm_hidden_dim": 128,
+  "dropout_rate": 0.3,
+  "attention_dim": 64,
+  "use_attention": true,
+  "use_fixed_alphabet": true,
+  "alphabet": "abcdefghijklmnopqrstuvwxyz0123456789-,;.!?:'\"/\\|_@#$%^&*~`+ =<>()[]{}",
+  "char_cnn_layers": [
+    {
+      "large_features": 1024,
+      "small_features": 256,
+      "kernel": 7,
+      "pool": 3,
+      "batch_norm": true
+    },
+    {
+      "large_features": 1024,
+      "small_features": 256,
+      "kernel": 7,
+      "pool": 3,
+      "batch_norm": true
+    },
+    {
+      "large_features": 1024,
+      "small_features": 256,
+      "kernel": 3,
+      "pool": null,
+      "batch_norm": true
+    },
+    {
+      "large_features": 1024,
+      "small_features": 256,
+      "kernel": 3,
+      "pool": null,
+      "batch_norm": true
+    },
+    {
+      "large_features": 1024,
+      "small_features": 256,
+      "kernel": 3,
+      "pool": null,
+      "batch_norm": true
+    },
+    {
+      "large_features": 1024,
+      "small_features": 256,
+      "kernel": 3,
+      "pool": 3,
+      "batch_norm": true
+    }
+  ],
+  "fc_layers": [
+    {
+      "large_units": 2048,
+      "small_units": 1024,
+      "batch_norm": true
+    },
+    {
+      "large_units": 2048,
+      "small_units": 1024,
+      "batch_norm": true
+    }
+  ],
+  "batch_size": 32,
+  "learning_rate": 0.0001,
+  "num_epochs": 30,
+  "seed": 42,
+  "early_stopping": true,
+  "early_stopping_patience": 3,
+  "optimizer": "adam",
+  "weight_decay": 0.0001,
+  "use_gradient_clipping": true,
+  "gradient_clip_value": 1.0,
+  "lr_scheduler": "cosine",
+  "warmup_epochs": 1,
+  "min_lr": 1e-05,
+  "use_focal_loss": true,
+  "focal_gamma": 2.5,
+  "use_label_smoothing": true,
+  "label_smoothing": 0.2,
+  "focal_alpha": [
+    1.0,
+    7.0,
+    8.0
+  ],
+  "custom_loss_penalties": {
+    "0,1": 4.0,
+    "0,2": 5.0,
+    "1,2": 2.0,
+    "2,0": 3.0
+  },
+  "category_weights": [
+    3.0,
+    3.0,
+    3.5,
+    3.0
+  ],
+  "category_focal_gamma": 2.0,
+  "category_thresholds": [
+    0.3,
+    0.3,
+    0.3,
+    0.3
+  ],
+  "category_loss_scale": 1.0,
+  "category_bias_adjustment": [
+    -0.2,
+    -0.2,
+    -0.2,
+    -0.3
+  ],
+  "use_language_detection": true,
+  "casual_words": [
+    "bro",
+    "dude",
+    "man",
+    "guys",
+    "buddy",
+    "pal",
+    "friend",
+    "mate",
+    "homie",
+    "pare",
+    "tol",
+    "pre",
+    "tsong",
+    "bai"
+  ],
+  "tagalog_threat_terms": [
+    "suntok",
+    "sapak",
+    "sampal",
+    "bugbog",
+    "gulpi",
+    "batok",
+    "dagok",
+    "tadyak",
+    "papatayin",
+    "patayin",
+    "mamatay",
+    "mamamatay",
+    "sasaktan",
+    "makatikim",
+    "tikim",
+    "saktan"
+  ],
+  "temperature_scaling": 0.8,
+  "text_column": "comment",
+  "toxicity_column": "toxicity_level",
+  "category_columns": [
+    "insult",
+    "profanity",
+    "threat",
+    "identity_hate"
+  ],
+  "category_map": null,
+  "toxicity_map": null,
+  "weight_init": true,
+  "multitask_weighting": "dynamic",
+  "initial_task_weights": {
+    "toxicity": 1.0,
+    "category": 1.0
+  },
+  "device_fix": true,
+  "use_mixed_precision": true,
+  "num_workers": 4,
+  "feedback_memory_capacity": 1000,
+  "analyze_errors_every": 5,
+  "enable_dynamic_adjustment": true,
+  "adjustment_frequency": 3,
+  "class_weight_adjustment_rate": 0.1,
+  "learning_rate_adjustment_rate": 0.15,
+  "enable_automatic_adjustments": true,
+  "sensitivity_increase_rate": 0.2,
+  "threshold_adjustment_rate": 0.2,
+  "bias_adjustment_value": 0.2,
+  "feedback_retrain_threshold": 5,
+  "feedback_learning_rate": 0.0002,
+  "feedback_epochs": 8,
+  "feedback_batch_size": 8,
+  "enable_feedback_learning": true
+}

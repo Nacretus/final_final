@@ -1,0 +1,66 @@
+{
+  "n_chars": 71,
+  "char_emb_dim": 50,
+  "char_cnn_layers": [
+    {
+      "large_features": 1024,
+      "small_features": 256,
+      "kernel": 7,
+      "pool": 3,
+      "batch_norm": true
+    },
+    {
+      "large_features": 1024,
+      "small_features": 256,
+      "kernel": 7,
+      "pool": 3,
+      "batch_norm": true
+    },
+    {
+      "large_features": 1024,
+      "small_features": 256,
+      "kernel": 3,
+      "pool": null,
+      "batch_norm": true
+    },
+    {
+      "large_features": 1024,
+      "small_features": 256,
+      "kernel": 3,
+      "pool": null,
+      "batch_norm": true
+    },
+    {
+      "large_features": 1024,
+      "small_features": 256,
+      "kernel": 3,
+      "pool": null,
+      "batch_norm": true
+    },
+    {
+      "large_features": 1024,
+      "small_features": 256,
+      "kernel": 3,
+      "pool": 3,
+      "batch_norm": true
+    }
+  ],
+  "fc_layers": [
+    {
+      "large_units": 2048,
+      "small_units": 1024,
+      "batch_norm": true
+    },
+    {
+      "large_units": 2048,
+      "small_units": 1024,
+      "batch_norm": true
+    }
+  ],
+  "lstm_hidden_dim": 128,
+  "dropout_rate": 0.3,
+  "use_fixed_alphabet": true,
+  "alphabet": "abcdefghijklmnopqrstuvwxyz0123456789-,;.!?:'\"/\\|_@#$%^&*~`+ =<>()[]{}",
+  "use_attention": true,
+  "attention_dim": 64
+}
